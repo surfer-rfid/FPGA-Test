@@ -35,14 +35,14 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/tx_cancel.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/txcancel_mem.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/dtc_state_saturate.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_mult_dual.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/signed_saturate.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_add_ci.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/tx_cancel.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/txcancel_mem.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/dtc_state_saturate.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_mult_dual.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/signed_saturate.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_add_ci.v}
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/verilog_test_modules {../../../sim_tb/verilog_test_modules/test_tx_cancel.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/verilog_test_modules {../../../FPGA-Test/verilog_test_modules/test_tx_cancel.v}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -L -voptargs="+acc"  test_tx_cancel
 

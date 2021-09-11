@@ -34,7 +34,7 @@ task    mcu_bfm_rfidr_s11_top;
 input    [15:0]     rn16_i;
 input    [127:0]    pcepc;
 
-`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_rx_localparam_defs.v"
+`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_rx_localparam_defs.v"
 
 localparam                rn16_i_mag_i_ideal    =    32'sd29000;
 localparam                rn16_i_mag_q_ideal    =    32'sd1300;

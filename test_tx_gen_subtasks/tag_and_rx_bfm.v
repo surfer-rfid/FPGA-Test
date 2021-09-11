@@ -51,7 +51,7 @@ task    tag_and_rx_bfm;
     input    [31:0]    seed_rn16_bits;
     input    [31:0]    seed_misc_bits;
     
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_rx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_rx_gen_sram_localparam_defs.v"
     
     integer            seed_rn16_bits_intl;
     integer            seed_misc_bits_intl;

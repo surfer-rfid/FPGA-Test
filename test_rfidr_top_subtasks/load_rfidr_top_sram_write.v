@@ -32,7 +32,7 @@ task    load_rfidr_top_sram_write;
     input    [31:0]    seed;
     
     //Include the write_16b file at the top level test module
-    //`include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_write_16b.v"
+    //`include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_write_16b.v"
     
     integer            seed_intl;
     reg      [15:0]    data [0:5];

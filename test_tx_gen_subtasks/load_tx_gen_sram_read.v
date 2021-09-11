@@ -29,7 +29,7 @@ task    load_tx_gen_sram_read;
     
     input    [25:0]      read_bits;
     
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
     
     reg                  done_flag;
     reg        [7:0]     read_vector_begin;

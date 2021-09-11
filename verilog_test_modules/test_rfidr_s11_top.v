@@ -177,42 +177,42 @@ module test_rfidr_s11_top();
 // Define RAM loading tasks
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_rx.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_txcw0.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_select.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_select_blank_epc.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_query.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_query_rep.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_rn16.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_handle.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_nak.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_reqhdl.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_reqrn16.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_write.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_write_16b.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_read.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_lock.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_top.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_cancel.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_rx.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_txcw0.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_select.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_select_blank_epc.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_query.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_query_rep.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_rn16.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_handle.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_nak.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_reqhdl.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_reqrn16.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_write.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_write_16b.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_read.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_lock.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_top.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_cancel.v"
     
 ////////////////////////////////////////////////////////////////////////////////////////
 // Define TX GEN checking tasks
 ////////////////////////////////////////////////////////////////////////////////////////
     
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_top.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_txcw0.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_select.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_select_blank_epc.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_query.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_query_rep.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_ack_rn16.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_nak.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_reqrn16.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_write.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_read.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_lock.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_write_16b.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_generate_crc16.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_top.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_txcw0.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_select.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_select_blank_epc.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_query.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_query_rep.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_ack_rn16.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_nak.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_reqrn16.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_write.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_read.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_lock.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_write_16b.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_generate_crc16.v"
     
 ////////////////////////////////////////////////////////////////////////////////////////
 // Assign internal nets to external wires so that they can be checked by the TX GEN checking tasks
@@ -238,10 +238,10 @@ module test_rfidr_s11_top();
 // Define Major BFMs
 ////////////////////////////////////////////////////////////////////////////////////////
     
-    `include "../../../sim_tb/test_rfidr_top_subtasks/wr_3byte_transaction_from_mcu_spi_cntrlr.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/wr_3byte_transaction_from_mcu_spi_cntrlr_return_data.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/mcu_bfm_rfidr_s11_top.v"
-    `include "../../../sim_tb/test_rfidr_top_subtasks/wvfm_strg_ideal_bfm.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/wr_3byte_transaction_from_mcu_spi_cntrlr.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/wr_3byte_transaction_from_mcu_spi_cntrlr_return_data.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/mcu_bfm_rfidr_s11_top.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/wvfm_strg_ideal_bfm.v"
     
 ////////////////////////////////////////////////////////////////////////////////////////
 // Define top level simulation operation

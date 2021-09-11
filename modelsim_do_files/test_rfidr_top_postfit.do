@@ -31,8 +31,8 @@
 transcript on
 
 #Run the .tcl files required by Mentor in order to include complex primitives like the internal oscillator and clock buffer
-#source ../../../rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
-#source ../../../rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
+#source ../../../FPGA/rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
+#source ../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
 
 if {[file exists rtl_work]} {
     vdel -lib rtl_work -all
@@ -43,21 +43,21 @@ vmap work rtl_work
 
 
 #Include all of the design files
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../quartus_project/simulation/modelsim/rfidr_top.vo}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/quartus_project/simulation/modelsim/rfidr_top.vo}
 
 
 #Include all of the BFMs instantiated as modules
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_dtc_spi_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_tx_filters_bfm_rfidr_top.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_sdm_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_sx1257_spi_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_tx_refl_coeff.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_dtc_spi_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_tx_filters_bfm_rfidr_top.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_sdm_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_sx1257_spi_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_tx_refl_coeff.v}
 
 #Reference the testbench and run
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/verilog_test_modules {../../../sim_tb/verilog_test_modules/test_rfidr_top_postfit.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/verilog_test_modules {../../../FPGA-Test/verilog_test_modules/test_rfidr_top_postfit.v}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -L -voptargs="+acc"  test_rfidr_top_postfit
 

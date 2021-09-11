@@ -214,10 +214,10 @@ module    test_rxchain();
 
     initial
         begin
-            data_in_1_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_in_loopf_1.dat","r");
-            data_cic8_out_1_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_out_loopf_1.dat","r");
-            data_chfilt_out_1_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/chfilt_out_loopf_1.dat","r");
-            data_dc_out_1_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/dc_out_loopf_1.dat","r");
+            data_in_1_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_in_loopf_1.dat","r");
+            data_cic8_out_1_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_out_loopf_1.dat","r");
+            data_chfilt_out_1_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/chfilt_out_loopf_1.dat","r");
+            data_dc_out_1_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/dc_out_loopf_1.dat","r");
         
             if (data_in_1_fid == `NULL || data_cic8_out_1_fid == `NULL || data_chfilt_out_1_fid == `NULL || data_dc_out_1_fid == `NULL)
                 begin
@@ -225,10 +225,10 @@ module    test_rxchain();
                     $stop;
                 end
                 
-            data_in_2_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_in_loopf_2.dat","r");
-            data_cic8_out_2_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_out_loopf_2.dat","r");
-            data_chfilt_out_2_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/chfilt_out_loopf_2.dat","r");
-            data_dc_out_2_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/dc_out_loopf_2.dat","r");
+            data_in_2_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_in_loopf_2.dat","r");
+            data_cic8_out_2_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_out_loopf_2.dat","r");
+            data_chfilt_out_2_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/chfilt_out_loopf_2.dat","r");
+            data_dc_out_2_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/dc_out_loopf_2.dat","r");
         
             if (data_in_2_fid == `NULL || data_cic8_out_2_fid == `NULL || data_chfilt_out_2_fid == `NULL || data_dc_out_2_fid == `NULL)
                 begin
@@ -236,10 +236,10 @@ module    test_rxchain();
                     $stop;
                 end
                 
-            data_in_3_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_in_loopf_3.dat","r");
-            data_cic8_out_3_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_out_loopf_3.dat","r");
-            data_chfilt_out_3_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/chfilt_out_loopf_3.dat","r");
-            data_dc_out_3_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/dc_out_loopf_3.dat","r");
+            data_in_3_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_in_loopf_3.dat","r");
+            data_cic8_out_3_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_out_loopf_3.dat","r");
+            data_chfilt_out_3_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/chfilt_out_loopf_3.dat","r");
+            data_dc_out_3_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/dc_out_loopf_3.dat","r");
         
             if (data_in_3_fid == `NULL || data_cic8_out_3_fid == `NULL || data_chfilt_out_3_fid == `NULL || data_dc_out_3_fid == `NULL)
                 begin
@@ -247,10 +247,10 @@ module    test_rxchain();
                     $stop;
                 end
                 
-            data_in_4_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_in_loopf_4.dat","r");
-            data_cic8_out_4_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_out_loopf_4.dat","r");
-            data_chfilt_out_4_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/chfilt_out_loopf_4.dat","r");
-            data_dc_out_4_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/dc_out_loopf_4.dat","r");
+            data_in_4_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_in_loopf_4.dat","r");
+            data_cic8_out_4_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_out_loopf_4.dat","r");
+            data_chfilt_out_4_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/chfilt_out_loopf_4.dat","r");
+            data_dc_out_4_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/dc_out_loopf_4.dat","r");
                 
             if (data_in_4_fid == `NULL || data_cic8_out_4_fid == `NULL || data_chfilt_out_4_fid == `NULL || data_dc_out_4_fid == `NULL)
                 begin
@@ -258,10 +258,10 @@ module    test_rxchain();
                     $stop;
                 end
                 
-            data_in_5_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_in_loopf_5.dat","r");
-            data_cic8_out_5_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/cic8_out_loopf_5.dat","r");
-            data_chfilt_out_5_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/chfilt_out_loopf_5.dat","r");
-            data_dc_out_5_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/dc_out_loopf_5.dat","r");
+            data_in_5_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_in_loopf_5.dat","r");
+            data_cic8_out_5_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/cic8_out_loopf_5.dat","r");
+            data_chfilt_out_5_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/chfilt_out_loopf_5.dat","r");
+            data_dc_out_5_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/dc_out_loopf_5.dat","r");
                 
             if (data_in_5_fid == `NULL || data_cic8_out_5_fid == `NULL || data_chfilt_out_5_fid == `NULL || data_dc_out_5_fid == `NULL)
                 begin

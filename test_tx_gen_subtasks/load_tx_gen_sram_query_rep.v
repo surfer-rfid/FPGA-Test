@@ -27,7 +27,7 @@
 
 task    load_tx_gen_sram_query_rep;
 
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
 
     reg                 done_flag;
     reg        [4:0]    query_rep_vector;

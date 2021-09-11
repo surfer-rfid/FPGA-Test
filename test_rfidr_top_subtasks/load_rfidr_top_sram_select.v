@@ -30,7 +30,7 @@ task    load_rfidr_top_sram_select;
     input    [27:0]    select_bits;
     input    [31:0]    seed;
     
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
 
     integer    loop_sram;
     integer    seed_intl;
@@ -47,8 +47,8 @@ task    load_rfidr_top_sram_select;
     reg    [48:0]    select_vector_half2;
     reg    [124:0]   select_vector;
     
-    reg    [8:0]    radio_sram_addr_27p5;
-    reg    [7:0]    radio_sram_wdata_27p5;
+    reg    [8:0]     radio_sram_addr_27p5;
+    reg    [7:0]     radio_sram_wdata_27p5;
     
     begin
         seed_intl                            =    seed;

@@ -31,8 +31,8 @@
 
 transcript on
 
-source ../../../rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
-source ../../../rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
+source ../../../FPGA/rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
+source ../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
 
 if {[file exists rtl_work]} {
     vdel -lib rtl_work -all
@@ -40,18 +40,18 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_and_reset_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/reset_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_mgmt_div_by_8.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_and_reset_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/reset_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_mgmt_div_by_8.v}
 
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/clk_gate_buf/simulation {../../../rfidr_source_2021/clk_gate_buf/simulation/clk_gate_buf.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/clk_gate_buf/simulation/submodules {../../../rfidr_source_2021/clk_gate_buf/simulation/submodules/clk_gate_buf_altclkctrl_0.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation {../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/clk_gate_buf.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/submodules {../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/submodules/clk_gate_buf_altclkctrl_0.v}
 
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/internal_osc/simulation {../../../rfidr_source_2021/internal_osc/simulation/internal_osc.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/internal_osc/simulation/submodules {../../../rfidr_source_2021/internal_osc/simulation/submodules/altera_int_osc.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/internal_osc/simulation {../../../FPGA/rfidr_source_2021/internal_osc/simulation/internal_osc.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/internal_osc/simulation/submodules {../../../FPGA/rfidr_source_2021/internal_osc/simulation/submodules/altera_int_osc.v}
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/verilog_test_modules {../../../sim_tb/verilog_test_modules/test_clk_and_reset_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/verilog_test_modules {../../../FPGA-Test/verilog_test_modules/test_clk_and_reset_mgmt.v}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -L -voptargs="+acc"  test_clk_and_reset_mgmt
 

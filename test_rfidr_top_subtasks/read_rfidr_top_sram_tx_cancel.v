@@ -36,7 +36,7 @@ task    read_rfidr_top_sram_tx_cancel;
     integer    ram_in_fid, ram_in_rslt;
     
     begin
-        ram_in_fid                =    $fopen("../../../octave_tb/rtl_test_vectors/txcancel_2bit_ram.txt","r");
+        ram_in_fid                =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/txcancel_2bit_ram.txt","r");
         if (ram_in_fid    == `NULL) begin
             $display("The TX cancel RAM was null");
             $stop;

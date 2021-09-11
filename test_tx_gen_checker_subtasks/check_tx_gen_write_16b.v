@@ -36,8 +36,8 @@ task    check_tx_gen_write_16b;
     //input(global)    out_i_baseband_4p5
     //input(global)    clk_4p5
 
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
     
     integer            state_counter;
     integer            length_write_vector_final;

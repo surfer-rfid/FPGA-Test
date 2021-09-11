@@ -43,22 +43,22 @@ task check_tx_gen_top;
     
     //It seems as if we need to define these included tasks at test_tx_gen.v top level.
     
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_txcw0.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_select.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_select_blank_epc.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_query.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_query_rep.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_ack_rn16.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_ack_handle.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_nak.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_reqhdl.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_reqrn16.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_write.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_read.v"
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_lock.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_txcw0.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_select.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_select_blank_epc.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_query.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_query_rep.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_ack_rn16.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_ack_handle.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_nak.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_reqhdl.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_reqrn16.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_write.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_read.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_lock.v"
     
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_rx_gen_sram_localparam_defs.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_rx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
     
     integer    seed_epc_select_int;
     integer    seed_epc_write_int;

@@ -42,20 +42,20 @@ task    load_rfidr_top_sram_top;
     //We may need to do these includes at the top level testbench module
     //We are getting an "unexpected task" error if we have them here
     
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_rx.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_txcw0.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_select.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_select_blank_epc.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_query.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_query_rep.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_rn16.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_handle.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_nak.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_reqhdl.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_reqrn16.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_write.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_read.v"
-    //`include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_lock.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_rx.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_txcw0.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_select.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_select_blank_epc.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_query.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_query_rep.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_rn16.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_ack_handle.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_nak.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_reqhdl.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_reqrn16.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_write.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_read.v"
+    //`include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_lock.v"
     
     integer    seed_epc_select_int;
     integer    seed_epc_write_int;

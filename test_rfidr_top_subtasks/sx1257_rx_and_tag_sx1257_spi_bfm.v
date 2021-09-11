@@ -91,7 +91,7 @@ module    sx1257_rx_and_tag_sx1257_spi_bfm
                     sx1257_addr                =    7'b0;
                     sx1257_rdata               =    8'b0;
                     sx1257_wdata               =    8'b0;
-                    if(!cntrlr_nps_rdio && !cntrlr_pclk) begin            //Stay here and wait until we get a falling edge on cntrlr_nps_radio
+                    if(!cntrlr_nps_rdio && !cntrlr_pclk) begin                   //Stay here and wait until we get a falling edge on cntrlr_nps_radio
                         sx1257_state           =    SX1257_WNR_BIT_PCLK_LOW;
                     end
                 end
@@ -163,15 +163,15 @@ module    sx1257_rx_and_tag_sx1257_spi_bfm
                         sx1257_state               =    SX1257_RX_DATA_CLK_HIGH;
                     end
                     if(cntrlr_nps_rdio)    begin
-                        cntrlr_cipo_sx1257_drive    =    1'b0;
-                        cntrlr_cipo_sx1257_out      =    1'bz;                        //Must tristate when NPS goes low
+                        cntrlr_cipo_sx1257_drive   =    1'b0;
+                        cntrlr_cipo_sx1257_out     =    1'bz;                        //Must tristate when NPS goes low
                         sx1257_state               =    SX1257_IDLE;
                     end
                 end
                 SX1257_RX_DATA_CLK_HIGH: begin
                     if(!cntrlr_pclk && sx1257_ctr < 4'd8)    begin
-                        cntrlr_cipo_sx1257_drive    =    1'b1;
-                        cntrlr_cipo_sx1257_out      =    sx1257_wdata[7];
+                        cntrlr_cipo_sx1257_drive   =    1'b1;
+                        cntrlr_cipo_sx1257_out     =    sx1257_wdata[7];
                         sx1257_wdata               =    {sx1257_wdata[6:0],1'b0};
                         sx1257_state               =    SX1257_RX_DATA_CLK_LOW;
                     end
@@ -197,8 +197,8 @@ module    sx1257_rx_and_tag_sx1257_spi_bfm
                         sx1257_state               =    SX1257_LIMBO;
                     end
                     if(cntrlr_nps_rdio)    begin
-                        cntrlr_cipo_sx1257_drive    =    1'b0;
-                        cntrlr_cipo_sx1257_out      =    1'bz;                        //Must tristate when NPS goes low
+                        cntrlr_cipo_sx1257_drive   =    1'b0;
+                        cntrlr_cipo_sx1257_out     =    1'bz;                        //Must tristate when NPS goes low
                         sx1257_state               =    SX1257_IDLE;
                     end
                 end
@@ -207,8 +207,8 @@ module    sx1257_rx_and_tag_sx1257_spi_bfm
                         //While waiting for this to happen in the wait statement at the beginning of this simulation, SX1257 and FPGA will drive each other
                         //This results in a short 1'bx on cntrlr_cipo in the simulation.
                         //This is a simulation artifact that does nothing and I'm not going to solve it at the moment.
-                        cntrlr_cipo_sx1257_drive    =    1'b0;
-                        cntrlr_cipo_sx1257_out      =    1'bz;                        //Must tristate when NPS goes low
+                        cntrlr_cipo_sx1257_drive   =    1'b0;
+                        cntrlr_cipo_sx1257_out     =    1'bz;                        //Must tristate when NPS goes low
                         sx1257_state               =    SX1257_IDLE;
                     end
                     if(cntrlr_pclk)    begin                    //Engage burst mode - do not change wnr bit
@@ -216,8 +216,8 @@ module    sx1257_rx_and_tag_sx1257_spi_bfm
                         sx1257_ctr                 =    4'b0;
                         sx1257_addr_int            =    sx1257_addr;
                         sx1257_wdata               =    sx1257_mem[sx1257_addr_int];
-                        cntrlr_cipo_sx1257_drive    =    1'b1;
-                        cntrlr_cipo_sx1257_out      =    sx1257_wdata[7];
+                        cntrlr_cipo_sx1257_drive   =    1'b1;
+                        cntrlr_cipo_sx1257_out     =    sx1257_wdata[7];
                         sx1257_wdata               =    {sx1257_wdata[6:0],1'b0};
                         sx1257_state               =    SX1257_RX_DATA_CLK_LOW;
                     end

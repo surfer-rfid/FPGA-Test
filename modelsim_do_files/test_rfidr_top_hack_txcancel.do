@@ -33,8 +33,8 @@
 transcript on
 
 #Run the .tcl files required by Mentor in order to include complex primitives like the internal oscillator and clock buffer
-source ../../../rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
-source ../../../rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
+source ../../../FPGA/rfidr_source_2021/internal_osc/simulation/mentor/msim_setup.tcl
+source ../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/mentor/msim_setup.tcl
 
 if {[file exists rtl_work]} {
     vdel -lib rtl_work -all
@@ -43,75 +43,75 @@ vlib rtl_work
 vmap work rtl_work
 
 #Include the clock gate buffer files with reside in a nontraditional location
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/clk_gate_buf/simulation {../../../rfidr_source_2021/clk_gate_buf/simulation/clk_gate_buf.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/clk_gate_buf/simulation/submodules {../../../rfidr_source_2021/clk_gate_buf/simulation/submodules/clk_gate_buf_altclkctrl_0.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation {../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/clk_gate_buf.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/submodules {../../../FPGA/rfidr_source_2021/clk_gate_buf/simulation/submodules/clk_gate_buf_altclkctrl_0.v}
 
 #Include the oscillator files which reside in a nontraditional location
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/internal_osc/simulation {../../../rfidr_source_2021/internal_osc/simulation/internal_osc.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021/internal_osc/simulation/submodules {../../../rfidr_source_2021/internal_osc/simulation/submodules/altera_int_osc.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/internal_osc/simulation {../../../FPGA/rfidr_source_2021/internal_osc/simulation/internal_osc.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021/internal_osc/simulation/submodules {../../../FPGA/rfidr_source_2021/internal_osc/simulation/submodules/altera_int_osc.v}
 
 #Include all of the design files
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/cdr_top.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/chnl_filt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/chnl_filt_dfii.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/chnl_filt_dfii_onemult.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/cic_8.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_and_reset_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_crossings.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_mgmt_div_by_8.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/clk_rcvy.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/cr_freq_det.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/cr_period_sdm.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/cr_phase_det.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/crc_ccitt16_rx.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/crc_ccitt16_tx.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/data_rcvy.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/dec_128.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/dtc_state_saturate.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/flip_mux.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/flip_mux_alt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/flip_mux_main_lut.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/irq_merge.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_add_ci.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_mult_const.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_mult_dual.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/lpm_sub.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/radio_fsm.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/radio_sram.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/radio_sram_with_mux.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/reset_mgmt.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/rfidr_fsm.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/rfidr_top_e144_c8g.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/rn16_and_handle_shift_regs.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/rxchain.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/signed_saturate.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/spi.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/spi_cntrlr.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/spi_prphrl.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/swap_mux.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/thresh_slope_comparisons.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/timer_comparisons.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/tx_cancel.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/txcancel_mem.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/tx_gen.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/tx_sdm_c8g.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/tx_zero_pattern_gen_c8g.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/wave_storage.v}
-vlog -vlog01compat -work work +incdir+../../../rfidr_source_2021 {../../../rfidr_source_2021/wave_storage_ram.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/cdr_top.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/chnl_filt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/chnl_filt_dfii.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/chnl_filt_dfii_onemult.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/cic_8.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_and_reset_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_crossings.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_mgmt_div_by_8.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/clk_rcvy.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/cr_freq_det.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/cr_period_sdm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/cr_phase_det.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/crc_ccitt16_rx.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/crc_ccitt16_tx.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/data_rcvy.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/dec_128.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/dtc_state_saturate.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/flip_mux.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/flip_mux_alt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/flip_mux_main_lut.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/irq_merge.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_add_ci.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_mult_const.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_mult_dual.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/lpm_sub.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/radio_fsm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/radio_sram.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/radio_sram_with_mux.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/reset_mgmt.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/rfidr_fsm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/rfidr_top_e144_c8g.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/rn16_and_handle_shift_regs.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/rxchain.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/signed_saturate.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/spi.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/spi_cntrlr.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/spi_prphrl.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/swap_mux.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/thresh_slope_comparisons.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/timer_comparisons.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/tx_cancel.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/txcancel_mem.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/tx_gen.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/tx_sdm_c8g.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/tx_zero_pattern_gen_c8g.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/wave_storage.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA/rfidr_source_2021 {../../../FPGA/rfidr_source_2021/wave_storage_ram.v}
 
 #Include all of the BFMs instantiated as modules
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_bfm_hack_txcancel.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_dtc_spi_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_tx_filters_bfm_rfidr_top.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_sdm_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_sx1257_spi_bfm.v}
-vlog -vlog01compat -work work +incdir+../../../sim_tb/test_rfidr_top_subtasks {../../../sim_tb/test_rfidr_top_subtasks/sx1257_rx_and_tag_tx_refl_coeff.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_bfm_hack_txcancel.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_dtc_spi_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_tx_filters_bfm_rfidr_top.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_sdm_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_sx1257_spi_bfm.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/test_rfidr_top_subtasks {../../../FPGA-Test/test_rfidr_top_subtasks/sx1257_rx_and_tag_tx_refl_coeff.v}
 
 #Reference the testbench and run
 
-vlog -vlog01compat -work work +incdir+../../../sim_tb/verilog_test_modules {../../../sim_tb/verilog_test_modules/test_rfidr_top_hack_txcancel.v}
+vlog -vlog01compat -work work +incdir+../../../FPGA-Test/verilog_test_modules {../../../FPGA-Test/verilog_test_modules/test_rfidr_top_hack_txcancel.v}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -L -voptargs="+acc"  test_rfidr_top_hack_txcancel
 

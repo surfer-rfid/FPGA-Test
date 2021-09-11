@@ -28,7 +28,7 @@
 
 task    load_rfidr_top_sram_rx;
 
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_rx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_rx_localparam_defs.v"
     
     reg    [8:0]    radio_sram_addr_27p5;
     reg    [7:0]    radio_sram_wdata_27p5;

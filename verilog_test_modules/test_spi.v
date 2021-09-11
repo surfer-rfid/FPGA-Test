@@ -567,23 +567,23 @@ module test_spi();
             .wvfm_sram_rdata(wvfm_sram_rdata),
             .txcancel_sram_rdata(txcancel_sram_rdata),
     
-            .clk(clk_27p5),                             //27p5MHz clock 
+            .clk(clk_27p5),                               //27p5MHz clock 
             .rst_n(rst_n_27p5),                
     
-            .txcancel_data(txcancel_data_27p5),         //Needs double flop synchronizer external to this block
-            .txcancel_data_aux(txcancel_data_aux_27p5), //Needs double flop synchronizer external to this block
-            .txcancel_csel(txcancel_csel_27p5),         //Needs double flop synchronizer external to this block
-            .txcancel_rdy(txcancel_rdy_27p5),           //Needs double flop synchronizer external to this block
+            .txcancel_data(txcancel_data_27p5),           //Needs double flop synchronizer external to this block
+            .txcancel_data_aux(txcancel_data_aux_27p5),   //Needs double flop synchronizer external to this block
+            .txcancel_csel(txcancel_csel_27p5),           //Needs double flop synchronizer external to this block
+            .txcancel_rdy(txcancel_rdy_27p5),             //Needs double flop synchronizer external to this block
     
             //SPI dut module Inputs related to control registers
     
-            .wave_storage_running(wave_storage_running),//Needs double flop synchronizer external to this block
-            .wave_storage_done(wave_storage_done),      //Needs double flop synchronizer external to this block
-            .radio_exit_code(radio_exit_code),          //Needs double flop synchronizer external to this block
-            .radio_num_tags(radio_num_tags),            //Needs double flop synchronizer external to this block
-            .radio_done(radio_done),                    //Needs double flop synchronizer external to this block
-            .radio_running(radio_running),              //Needs double flop synchronizer external to this block
-            .tx_error(tx_error),                        //Needs double flop synchronizer external to this block
+            .wave_storage_running(wave_storage_running),  //Needs double flop synchronizer external to this block
+            .wave_storage_done(wave_storage_done),        //Needs double flop synchronizer external to this block
+            .radio_exit_code(radio_exit_code),            //Needs double flop synchronizer external to this block
+            .radio_num_tags(radio_num_tags),              //Needs double flop synchronizer external to this block
+            .radio_done(radio_done),                      //Needs double flop synchronizer external to this block
+            .radio_running(radio_running),                //Needs double flop synchronizer external to this block
+            .tx_error(tx_error),                          //Needs double flop synchronizer external to this block
             .clk_36_valid(clk_36_valid),
             .clk_36_running(clk_36_running),
 
@@ -605,7 +605,7 @@ module test_spi();
             .cntrlr_copi_cap1(cntrlr_copi_cap1),
             .cntrlr_copi_cap0_rdio(cntrlr_copi_cap0_rdio),
     
-            .radio_ack(radio_ack),                      //Assert this when txcancel_rdy is high and packet has been processed
+            .radio_ack(radio_ack),                        //Assert this when txcancel_rdy is high and packet has been processed
             .irq_spi(irq_spi),
     
             //SPI dut module Outputs related to control registers
@@ -732,22 +732,22 @@ module test_spi();
         //Emulate NRF51822 SPI CPHA=0; namely, data transitions on the falling edge and is sampled on the rising edge
         //This means that the first data must be placed on the line a half clock cycle prior to the first rising edge
         //Inputs from simulation
-        //input    prphrl_cipo;     - Access as global variable
+        //input                   prphrl_cipo;     - Access as global variable
         //Input arguments
         input                     write_readb;
         input            [13:0]   address;
         input            [7:0]    data_in;
         input            [7:0]    data_return_ideal;
         //Outputs
-        //output            prphrl_copi; - Access as global variable
-        //output            prphrl_nps;  - Access as global variable
-        //output            prphrl_pclk; - Access as global variable
+        //output                  prphrl_copi; - Access as global variable
+        //output                  prphrl_nps;  - Access as global variable
+        //output                  prphrl_pclk; - Access as global variable
         //Task Declarations
-        reg              [7:0]     data_return;
+        reg              [7:0]    data_return;
         //Local Variable Declarations
-        reg    signed    [5:0]     loop_i;    //Use a reg instead of an integer to ensure that we are properly using case syntax.
-        reg    signed    [5:0]     loop_j;
-        reg              [22:0]    tx_data;
+        reg    signed    [5:0]    loop_i;    //Use a reg instead of an integer to ensure that we are properly using case syntax.
+        reg    signed    [5:0]    loop_j;
+        reg              [22:0]   tx_data;
         //Task statement
         begin
             tx_data                =    {write_readb,address,data_in};    //As per our LUT optimizations, we adopted a unified memory map for the FPGA. Writes to the SX1257 are done through the user register map.
@@ -772,17 +772,17 @@ module test_spi();
                 end
             end
             @(negedge clk_pclk_nrf51822)
-            prphrl_pclk_extl    =    1'b0;                                 //Have the final falling clock edge to complete the bit transfer portion of the transaction
+            prphrl_pclk_extl    =    1'b0;                                //Have the final falling clock edge to complete the bit transfer portion of the transaction
         
             if(data_return_ideal != data_return)    begin
                 $display("The simulation failed: data returned %b did not equal data returned %b ideal at time %t",data_return,data_return_ideal,$realtime);
                 $stop;
             end
             
-            @(posedge clk_pclk_nrf51822);                                  //This two clock cycle delay is based on the diagrams in the NRF51822 reference manual (page 134) but may not in fact be accurate
+            @(posedge clk_pclk_nrf51822);                                 //This two clock cycle delay is based on the diagrams in the NRF51822 reference manual (page 134) but may not in fact be accurate
             @(posedge clk_pclk_nrf51822);
-            prphrl_nps_extl        =    1'b1;                               //Drive chip select high to signal the end of a transaction
-            @(posedge clk_pclk_nrf51822);                                  //Give a 2 clock cycle delay before we attempt any other transactions.
+            prphrl_nps_extl        =    1'b1;                             //Drive chip select high to signal the end of a transaction
+            @(posedge clk_pclk_nrf51822);                                 //Give a 2 clock cycle delay before we attempt any other transactions.
             @(posedge clk_pclk_nrf51822);
         end
     endtask
@@ -807,12 +807,12 @@ module test_spi();
         
         //output    [7:0]    txcancel_data_4p5;
         //output    [2:0]    txcancel_csel_4p5;
-        //output            txcancel_rdy_4p5;
+        //output             txcancel_rdy_4p5;
         
         //Input arguments
-        input    [7:0]    data;
+        input    [7:0]     data;
         input    [14:0]    data_aux;
-        input            csel;
+        input              csel;
         
         //Task Declarations
         //Local Variable Declarations
@@ -866,7 +866,7 @@ module test_spi();
         //output              clk_36;
         
         //Input arguments
-        input    [7:0]    wdata;
+        input    [7:0]     wdata;
         input    [12:0]    waddr;
         
         //Task Declarations
@@ -1024,7 +1024,7 @@ module test_spi();
         input    [7:0]    rdata_ideal;
         input    [1:0]    raddr;
         
-        reg        [7:0]    rdata_actual;
+        reg      [7:0]    rdata_actual;
         
         //Task Declarations
         //Local Variable Declarations
@@ -1134,7 +1134,7 @@ module test_spi();
     task    fill_sx1257_sram_from_ideal;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [7:0]    loop_addr;
@@ -1159,7 +1159,7 @@ module test_spi();
     task    read_sx1257_sram_to_ideal;
     
         //Input arguments
-        input    [7:0]      seed;
+        input      [7:0]      seed;
     
         //Local Variable Declarations
         reg        [7:0]    loop_addr;
@@ -1178,7 +1178,7 @@ module test_spi();
     
     task    read_sx1257_gain_sram_to_ideal;
         //Input arguments
-        input    [7:0]      seed;
+        input      [7:0]      seed;
     
         //Local Variable Declarations
         integer             seed_intl;
@@ -1195,7 +1195,7 @@ module test_spi();
     task    read_dtc_sram_to_ideal;
     
         //Input arguments
-        input    [7:0]      seed;
+        input      [7:0]      seed;
     
         //Local Variable Declarations
         reg        [2:0]    loop_addr;
@@ -1216,7 +1216,7 @@ module test_spi();
     task    fill_waveform_sram_from_ideal;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [13:0]    loop_addr;
@@ -1231,7 +1231,7 @@ module test_spi();
             //So we first transfer this value into an internal variable which should be alterable by the runtime environment,
             //giving the proper seeded random behavior.
             seed_intl    =    seed;
-            wave_ram_ideal_wren        =    1'b1;
+            wave_ram_ideal_wren       =    1'b1;
             for(loop_addr = 14'b0; loop_addr < 14'b10_0000_0000_0000; loop_addr = loop_addr + 14'd1)    begin
                 data_intl    =    {$random(seed_intl)} % 256;
                 //$display("Data_intl is %d at %t",data_intl,$realtime);
@@ -1248,7 +1248,7 @@ module test_spi();
     task    read_tx_cancel_sram_to_ideal;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [10:0]    loop_addr;
@@ -1268,7 +1268,7 @@ module test_spi();
     task    fill_radio_rx_sram_from_ideal;
     
         //Input arguments
-        input    [7:0]      seed;
+        input      [7:0]      seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1294,7 +1294,7 @@ module test_spi();
     task    read_radio_rx_sram_to_ideal;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1314,7 +1314,7 @@ module test_spi();
     task    read_radio_tx_sram_to_ideal;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1334,7 +1334,7 @@ module test_spi();
     task    read_waveform_sram_to_nrf51822;
     
         //Input arguments
-        input    [7:0]       seed;
+        input      [7:0]       seed;
         
         //Local Variable Declarations
         reg        [13:0]    loop_addr;
@@ -1358,7 +1358,7 @@ module test_spi();
     task    fill_tx_cancel_sram_from_nrf51822;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [10:0]    loop_addr;
@@ -1382,7 +1382,7 @@ module test_spi();
     task    read_tx_cancel_sram_from_nrf51822;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [10:0]    loop_addr;
@@ -1406,7 +1406,7 @@ module test_spi();
     task    fill_radio_rx_sram_from_nrf51822;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1430,7 +1430,7 @@ module test_spi();
     task    fill_radio_tx_sram_from_nrf51822;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1454,7 +1454,7 @@ module test_spi();
     task    read_radio_rx_sram_to_nrf51822;
     
         //Input arguments
-        input    [7:0]    seed;
+        input      [7:0]    seed;
     
         //Local Variable Declarations
         reg        [9:0]    loop_addr;
@@ -1480,7 +1480,7 @@ module test_spi();
         //This one gets a little tricky because we have to access the user memory a few times for this to work.
     
         //Input arguments
-        input    [7:0]      seed;
+        input      [7:0]      seed;
     
         //Local Variable Declarations
         reg        [7:0]    loop_addr;
@@ -1496,7 +1496,8 @@ module test_spi();
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b100},{1'b1,loop_addr[6:0]},8'b0000_0000);    //Write SX1257 WNR bit + ADDR to SPI cntrlr passthrough address byte
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b101},data_intl,8'b0000_0000);                //Write SX1257 DATA byte to SPI cntrlr passthrough data byte
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b110},8'b0000_0001,8'b0000_0000);             //Write cntrlr spi ready, but how do we know when it's done?
-                //wr_3byte_transaction_from_mcu_spi_cntrlr(1'b0,{4'b0001,7'b0,3'b010},8'b0000_0000,8'b?10?_????);           //Can't check to see if pending is actually set here b/c it will be done in 16 ~7MHz clock cycles whereas it will take 32 5 MHz clock cycles to perform the interrogation.
+                //wr_3byte_transaction_from_mcu_spi_cntrlr(1'b0,{4'b0001,7'b0,3'b010},8'b0000_0000,8'b?10?_????);           
+                //Can't check to see if pending is actually set here b/c it will be done in 16 ~7MHz clock cycles whereas it will take 32 5 MHz clock cycles to perform the interrogation.
                 //@(negedge dut.cntrlr_spi_pending);    //We should be able to catch this, however. - Nope
                 //@(posedge mcu_irq_pin); - Not even this
                 wait(dut.cntrlr_spi_done == 1'b1);    //Fine, we will do this to ensure proper gating of flow.
@@ -1528,7 +1529,8 @@ module test_spi();
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b100},{1'b0,loop_addr[6:0]},8'b0000_0000);    //Write SX1257 RNW bit + ADDR to SPI cntrlr passthrough address byte
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b101},8'b0000_0000,8'b0000_0000);             //Write SX1257 DATA byte to SPI cntrlr passthrough data byte
                 wr_3byte_transaction_from_mcu_spi_cntrlr(1'b1,{4'b0001,7'b0,3'b110},8'b0000_0001,8'b0000_0000);             //Write cntrlr spi ready, but how do we know when it's done?
-                //wr_3byte_transaction_from_mcu_spi_cntrlr(1'b0,{4'b0001,7'b0,3'b010},8'b0000_0000,8'b?10?_????);           //Can't check to see if pending is actually set here b/c it will be done in 16 ~7MHz clock cycles whereas it will take 32 5 MHz clock cycles to perform the interrogation.
+                //wr_3byte_transaction_from_mcu_spi_cntrlr(1'b0,{4'b0001,7'b0,3'b010},8'b0000_0000,8'b?10?_????);           
+                //Can't check to see if pending is actually set here b/c it will be done in 16 ~7MHz clock cycles whereas it will take 32 5 MHz clock cycles to perform the interrogation.
                 //@(negedge dut.cntrlr_spi_pending);    //We should be able to catch this, however. - Nope
                 //@(posedge mcu_irq_pin); - Not even this
                 wait(dut.cntrlr_spi_done == 1'b1);    //Fine, we will do this to ensure proper gating of flow.

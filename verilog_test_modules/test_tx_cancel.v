@@ -156,9 +156,9 @@ module test_tx_cancel();
     // Open data files
     
     initial    begin 
-        data_in_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/txcancel_2bit_input_112617.dat","r");
-        data_out_fid   =    $fopen("../../../octave_tb/rtl_test_vectors/txcancel_2bit_output_112617.dat","r");
-        ram_in_fid     =    $fopen("../../../octave_tb/rtl_test_vectors/txcancel_2bit_ram_121816_sim.txt","r");
+        data_in_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/txcancel_2bit_input_112617.dat","r");
+        data_out_fid   =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/txcancel_2bit_output_112617.dat","r");
+        ram_in_fid     =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/txcancel_2bit_ram_121816_sim.txt","r");
         //Note that while the input data is updated once per 4.5 MHz clock period,
         // the output data file is updated once every 128 4.5MHz clock periods
     

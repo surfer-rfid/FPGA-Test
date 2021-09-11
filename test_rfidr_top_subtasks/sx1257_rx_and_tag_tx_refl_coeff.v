@@ -52,20 +52,20 @@ module    sx1257_rx_and_tag_tx_refl_coeff
     integer    scan_out_rslt;
     integer    data_in_fid;
 
-    real    tmn_refl_coeff_r    [0:31][0:31][0:31][0:31];
-    real    tmn_refl_coeff_i    [0:31][0:31][0:31][0:31];
-    real    target_refl_coeff_r, target_refl_coeff_i, cos_tx_lkg_rot_angle, sin_tx_lkg_rot_angle;
-    real    tx_net_refl_coeff_r, tx_net_refl_coeff_i;
-    real    residual_refl_coeff_r, residual_refl_coeff_i;
+    real       tmn_refl_coeff_r    [0:31][0:31][0:31][0:31];
+    real       tmn_refl_coeff_i    [0:31][0:31][0:31][0:31];
+    real       target_refl_coeff_r, target_refl_coeff_i, cos_tx_lkg_rot_angle, sin_tx_lkg_rot_angle;
+    real       tx_net_refl_coeff_r, tx_net_refl_coeff_i;
+    real       residual_refl_coeff_r, residual_refl_coeff_i;
         
-    assign    tx_net_refl_coeff_r_bits    =    $realtobits(tx_net_refl_coeff_r);
-    assign    tx_net_refl_coeff_i_bits    =    $realtobits(tx_net_refl_coeff_i);
+    assign     tx_net_refl_coeff_r_bits    =    $realtobits(tx_net_refl_coeff_r);
+    assign     tx_net_refl_coeff_i_bits    =    $realtobits(tx_net_refl_coeff_i);
     
     initial    begin
     
         //Load the array describing the tunable microwave network reflection coefficient as a function of dtc value
     
-        data_in_fid        =    $fopen("../../../octave_tb/rtl_test_vectors/nw082117_simple_qucs_ascii.dat","r");
+        data_in_fid        =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/nw082117_simple_qucs_ascii.dat","r");
         
         if (data_in_fid == `NULL)    begin
             $display("Error: ASCII data file containing tunable microwave network information could not be opened at time %t",$realtime);

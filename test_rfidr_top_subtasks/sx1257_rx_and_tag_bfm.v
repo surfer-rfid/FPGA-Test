@@ -136,7 +136,7 @@ module    sx1257_rx_and_tag_bfm
     end
     
     initial    begin
-        data_in_fid            =    $fopen("../../../octave_tb/rtl_test_vectors/rfidr_top_input_112617.dat","r");
+        data_in_fid            =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/rfidr_top_input_112617.dat","r");
                 
         if (data_in_fid == `NULL)    begin
             $display("Error: ASCII data file containing baseband equivalent signals could not be opened at time $t",$realtime);

@@ -33,7 +33,7 @@ task    load_rfidr_top_sram_write_16b;
     input    [2:0]     write_offset;
     input              is_last_write;
 
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
     
     integer    loop_sram;
     

@@ -29,7 +29,7 @@ task    load_rfidr_top_sram_query;
     
     input    [21:0]    query_bits;
     
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
     
     reg      [21:0]    query_vector;
     

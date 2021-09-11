@@ -29,7 +29,7 @@ task    load_tx_gen_sram_select_blank_epc;
 
     input    [27:0]    select_blank_bits;
 
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
     
     reg        done_flag;
     integer    loop_sram;

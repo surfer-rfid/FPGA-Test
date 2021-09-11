@@ -29,7 +29,7 @@ task    load_tx_gen_sram_query;
     
     input    [21:0]      query_bits;
     
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
     
     reg                  done_flag;
     reg        [21:0]    query_vector;

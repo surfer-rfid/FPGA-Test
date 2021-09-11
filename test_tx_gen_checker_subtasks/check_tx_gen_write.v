@@ -33,7 +33,7 @@ task    check_tx_gen_write;
     input    [2:0]     wpc;
     
     //Include this file at the top level simulation module
-    //`include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_write_16b.v"
+    //`include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_write_16b.v"
     
     integer            seed_data_bits_intl;
     integer            seed_rn16_bits_intl;

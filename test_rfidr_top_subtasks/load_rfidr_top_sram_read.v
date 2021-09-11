@@ -29,7 +29,7 @@ task    load_rfidr_top_sram_read;
     
     input    [25:0]    read_bits;
     
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
     
     reg        [7:0]    read_vector_begin;
     reg        [19:0]   read_vector_end;

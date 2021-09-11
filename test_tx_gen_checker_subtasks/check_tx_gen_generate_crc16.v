@@ -30,40 +30,27 @@ task    check_tx_gen_generate_crc16;    //Want automatic because there will be d
     input     [31:0]    length;         //We need to know the length of the bit vector entered in as "bits"
     output    [15:0]    crc_16;         //Since this is a one-shot task, can just output the CRC16.
     
-    integer             loop_crc;
-    reg       [15:0]    crc_reg, crc_reg_next;
-    reg                 data_in;
+    localparam          CRC_POLY    =    16'b0001_0000_0010_0000;
+    
+    integer             loop_shift;
+    reg       [15:0]    shift_reg, shift_reg_next;
+    reg                 bit_in;
     
     begin
         
-        loop_crc        =    length-1;
-        data_in         =    1'b0;        //This should get overwritten right away
-        crc_reg         =    16'hFFFF;
-        crc_reg_next    =    16'hFFFF;
+        loop_shift        =    length-1;
+        bit_in            =    1'b0;        //This should get overwritten right away
+        shift_reg         =    16'hFFFF;
+        shift_reg_next    =    16'hFFFF;
     
-        for(loop_crc=length-1;loop_crc>=0;loop_crc=loop_crc-1)    begin
-            data_in                =    (bits >> loop_crc) & 256'd1;        //According to Section 4.1.5 of Verilog 2001 spec., integer division shall truncate any fractional part to zero.
-            //$display("CRC data in is %b for iter %d at time %t",data_in,loop_crc,$realtime);
-            crc_reg_next[0]        =    crc_reg[15] ^ data_in;
-            crc_reg_next[1]        =    crc_reg[0];
-            crc_reg_next[2]        =    crc_reg[1];
-            crc_reg_next[3]        =    crc_reg[2];
-            crc_reg_next[4]        =    crc_reg[3];
-            crc_reg_next[5]        =    (crc_reg[15] ^ data_in) ^ crc_reg[4];
-            crc_reg_next[6]        =    crc_reg[5];
-            crc_reg_next[7]        =    crc_reg[6];
-            crc_reg_next[8]        =    crc_reg[7];
-            crc_reg_next[9]        =    crc_reg[8];
-            crc_reg_next[10]       =    crc_reg[9];
-            crc_reg_next[11]       =    crc_reg[10];
-            crc_reg_next[12]       =    (crc_reg[15] ^ data_in) ^ crc_reg[11];
-            crc_reg_next[13]       =    crc_reg[12];
-            crc_reg_next[14]       =    crc_reg[13];
-            crc_reg_next[15]       =    crc_reg[14];
-        
-            crc_reg                =    crc_reg_next;
+        for(loop_shift=length-1;loop_shift>=0;loop_shift=loop_shift-1)    begin
+            bit_in                   =    (bits >> loop_shift) & 256'd1;
+            //According to Section 4.1.5 of Verilog 2001 spec., integer division shall truncate any fractional part to zero.
+            //$display("CRC data in is %b for iter %d at time %t",bit_in,loop_shift,$realtime);
+            shift_reg_next    =    ({16{shift_reg[15] ^ bit_in}} & CRC_POLY) ^ {shift_reg[14:0],shift_reg[15] ^ bit_in};
+            shift_reg         =    shift_reg_next;
         end
         
-        crc_16    =    ~crc_reg;
+        crc_16    =    ~shift_reg;
     end
 endtask

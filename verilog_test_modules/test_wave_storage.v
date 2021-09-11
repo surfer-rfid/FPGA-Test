@@ -141,7 +141,7 @@ module test_wave_storage();
         
     //// Initial block for opening data files
 
-    data_in_fid             =    $fopen($psprintf("../../../octave_tb/rtl_test_vectors/wvstrg_input.dat"),"r");
+    data_in_fid             =    $fopen($psprintf("../../../MATLAB-Octave-Test/rtl_test_vectors/wvstrg_input.dat"),"r");
 
     if (data_in_fid == `NULL) begin
         $display("The input file handle came back as NULL");
@@ -187,7 +187,7 @@ module test_wave_storage();
     
 
     //Open the input file again - it's the simplest way to check that what comes out is what went in.
-    data_in_fid_2           =    $fopen($psprintf("../../../octave_tb/rtl_test_vectors/wvstrg_input.dat"),"r");
+    data_in_fid_2           =    $fopen($psprintf("../../../MATLAB-Octave-Test/rtl_test_vectors/wvstrg_input.dat"),"r");
 
     if (data_in_fid_2 == `NULL) begin
         $display("The input file handle came back as NULL");

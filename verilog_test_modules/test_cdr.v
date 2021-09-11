@@ -143,7 +143,7 @@ module test_cdr();
     
     //// Initial block for opening data files
 
-    data_in_fid    =    $fopen($psprintf("../../../octave_tb/rtl_test_vectors/test_cdr_amp_m%0ddB_phs_%0ddeg_freq_%0d_in.dat",mag_int,phs_int,freq_int),"r");
+    data_in_fid    =    $fopen($psprintf("../../../MATLAB-Octave-Test/rtl_test_vectors/test_cdr_amp_m%0ddB_phs_%0ddeg_freq_%0d_in.dat",mag_int,phs_int,freq_int),"r");
 
     if (data_in_fid == `NULL) begin
         $display("The input file handle came back as NULL");
@@ -201,7 +201,7 @@ module test_cdr();
 
     //// Deal with the SRAM now
     
-    data_out_fid     =    $fopen($psprintf("../../../octave_tb/rtl_test_vectors/test_cdr_amp_m%0ddB_phs_%0ddeg_freq_%0d_out.dat",mag,phs,freq),"r");
+    data_out_fid     =    $fopen($psprintf("../../../MATLAB-Octave-Test/rtl_test_vectors/test_cdr_amp_m%0ddB_phs_%0ddeg_freq_%0d_out.dat",mag,phs,freq),"r");
 
     if (data_out_fid == `NULL) begin
         $display("The output file for handle %d came back as NULL",data_out_fid);

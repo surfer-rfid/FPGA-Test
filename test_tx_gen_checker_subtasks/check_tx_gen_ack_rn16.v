@@ -33,8 +33,8 @@ task    check_tx_gen_ack_rn16;
 
     input    [15:0]    rn16_bits;
 
-    `include "../../../sim_tb/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
-    `include "../../../sim_tb/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_subtasks/load_tx_gen_sram_localparam_defs.v"
+    `include "../../../FPGA-Test/test_tx_gen_checker_subtasks/check_tx_gen_localparam_defs.v"
     
     integer    state_counter;
     integer    length_ack_rn16_vector;

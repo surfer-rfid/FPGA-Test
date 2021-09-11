@@ -88,9 +88,9 @@ module test_tx_sdm();
 
     initial
         begin
-            data_in_fid      =    $fopen("../../../octave_tb/rtl_test_vectors/tx_sdm_in.dat","r");
-            data_out_fid     =    $fopen("../../../octave_tb/rtl_test_vectors/tx_sdm_out.dat","r");
-            data_lfsr_fid    =    $fopen("../../../octave_tb/rtl_test_vectors/tx_sdm_lfsr.dat","r");
+            data_in_fid      =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/tx_sdm_in.dat","r");
+            data_out_fid     =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/tx_sdm_out.dat","r");
+            data_lfsr_fid    =    $fopen("../../../MATLAB-Octave-Test/rtl_test_vectors/tx_sdm_lfsr.dat","r");
         
             if (data_in_fid == `NULL)
                 begin

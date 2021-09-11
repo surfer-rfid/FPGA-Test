@@ -29,7 +29,7 @@ task    load_rfidr_top_sram_lock;
     
     input    [27:0]    lock_bits;
     
-    `include "../../../sim_tb/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
+    `include "../../../FPGA-Test/test_rfidr_top_subtasks/load_rfidr_top_sram_tx_localparam_defs.v"
     
     reg      [7:0]     lock_vector_begin;
     reg      [19:0]    lock_vector_end;
